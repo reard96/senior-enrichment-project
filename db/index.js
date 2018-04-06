@@ -1,3 +1,5 @@
+const Promise = require('bluebird');
+
 const conn = require('./conn');
 const Student = require('./Student');
 const Campus = require('./Campus');
@@ -24,10 +26,11 @@ const sync = () => {
   return conn.sync({ force: true });
 };
 
-// intentionally in this order so that campusId of seeded students matches
+// using Bluebird's 'each' to prevent async issues
+// i.e. so that campusId of seeded students matches the correct campus
 const seed = () => {
-  Promise.all(seedCampus.map(campus => Campus.create(campus)));
-  Promise.all(seedStudent.map(student => Student.create(student)));
+  Promise.each(seedCampus.map(campus => Campus.create(campus)));
+  Promise.each(seedStudent.map(student => Student.create(student)));
 };
 
 module.exports = {
