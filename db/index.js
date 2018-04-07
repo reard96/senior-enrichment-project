@@ -8,9 +8,9 @@ Campus.hasMany(Student);
 
 // seed initial data
 const seedStudent = [
-  { firstName: 'Dan', lastName: 'Reardon', email: 'dan@penn.edu', campusId: 3 },
-  { firstName: 'Greg', lastName: 'Moon', email: 'greg@nyu.edu', campusId: 1 },
-  { firstName: 'Fendi', lastName: 'Liu', email: 'fendi@columbia.edu', campusId: 2 }
+  { firstName: 'Dan', lastName: 'Reardon', email: 'dan@penn.edu' },
+  { firstName: 'Greg', lastName: 'Moon', email: 'greg@nyu.edu' },
+  { firstName: 'Fendi', lastName: 'Liu', email: 'fendi@columbia.edu' }
 ];
 
 const seedCampus = [
@@ -24,10 +24,10 @@ const sync = () => {
   return conn.sync({ force: true });
 };
 
-// intentionally in this order so that campusId of seeded students matches
 const seed = () => {
-  Promise.all(seedCampus.map(campus => Campus.create(campus)));
-  Promise.all(seedStudent.map(student => Student.create(student)));
+  const campusPromises = Promise.all(seedCampus.map(campus => Campus.create(campus)));
+  const studentPromises = Promise.all(seedStudent.map(student => Student.create(student)));
+  return Promise.all([ studentPromises, campusPromises ]);
 };
 
 module.exports = {
