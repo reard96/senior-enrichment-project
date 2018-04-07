@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Nav = ({ students, campuses }) => {
   return (
     <ul>
       <li>
-        Home
+        <Link to="/">Home</Link>
       </li>
       <li>
-        Students: { students.length }
+        <Link to="/api/students">Students: { students.length }</Link>
       </li>
       <li>
-        Campuses: { campuses.length }
+      <Link to="/api/campuses">Campuses: { campuses.length }</Link>
       </li>
     </ul>
   );
