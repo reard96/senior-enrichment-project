@@ -6,7 +6,6 @@ const Campus = require('./Campus');
 Student.belongsTo(Campus);
 Campus.hasMany(Student);
 
-// seed initial data
 const seedStudent = [
   { firstName: 'Dan', lastName: 'Reardon', email: 'dan@penn.edu' },
   { firstName: 'Greg', lastName: 'Moon', email: 'greg@nyu.edu' },
