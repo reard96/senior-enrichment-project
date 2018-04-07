@@ -11,7 +11,7 @@ const Students = ({ students }) => {
         students.map(student => {
           return (
             <li key={ student.id }>
-              <Link to={ `/api/students/${ student.id }` }>{ student.name }</Link>
+              <Link to={ `/students/${ student.id }` }>{ student.name }</Link>
             </li>
           );
         })
