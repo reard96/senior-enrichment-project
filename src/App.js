@@ -21,10 +21,10 @@ class App extends Component {
         <div>
           <Nav />
           <Route path="/" exact component={ Home } />
-          <Route path="/api/students" exact component={ Students } />
-          <Route path="/api/students/:id" exact render={ ({ match }) => <Student id={ match.params.id * 1 } /> } />
-          <Route path="/api/campuses" exact component={ Campuses } />
-          <Route path="/api/campuses/:id" exact render={ ({ match }) => <Campus id={ match.params.id * 1 } /> } />
+          <Route path="/students" exact component={ Students } />
+          <Route path="/students/:id" exact render={ ({ match }) => <Student id={ match.params.id * 1 } /> } />
+          <Route path="/campuses" exact component={ Campuses } />
+          <Route path="/campuses/:id" exact render={ ({ match }) => <Campus id={ match.params.id * 1 } /> } />
         </div>
       </Router>
     );
