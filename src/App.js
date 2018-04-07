@@ -6,6 +6,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
 import Students from './Students';
 import Campuses from './Campuses';
+import Student from './Student';
+import Campus from './Campus';
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +22,9 @@ class App extends Component {
           <Nav />
           <Route path="/" exact component={ Home } />
           <Route path="/api/students" exact component={ Students } />
+          <Route path="/api/students/:id" exact render={ ({ match }) => <Student id={ match.params.id * 1 } /> } />
           <Route path="/api/campuses" exact component={ Campuses } />
+          <Route path="/api/campuses/:id" exact render={ ({ match }) => <Campus id={ match.params.id * 1 } /> } />
         </div>
       </Router>
     );

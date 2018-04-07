@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Campuses = ({ campuses }) => {
   return (
@@ -10,7 +11,7 @@ const Campuses = ({ campuses }) => {
         campuses.map(campus => {
           return (
             <li key={ campus.id }>
-              { campus.name }
+              <Link to={ `/api/campuses/${ campus.id }` }>{ campus.name }</Link>
             </li>
           );
         })
