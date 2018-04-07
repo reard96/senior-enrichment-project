@@ -11,7 +11,7 @@ const Campuses = ({ campuses }) => {
         campuses.map(campus => {
           return (
             <li key={ campus.id }>
-              <Link to={ `/api/campuses/${ campus.id }` }>{ campus.name }</Link>
+              <Link to={ `/campuses/${ campus.id }` }>{ campus.name }</Link>
             </li>
           );
         })

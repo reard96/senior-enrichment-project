@@ -9,10 +9,10 @@ const Nav = ({ students, campuses }) => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/api/students">Students: { students.length }</Link>
+        <Link to="/students">Students: { students.length }</Link>
       </li>
       <li>
-      <Link to="/api/campuses">Campuses: { campuses.length }</Link>
+      <Link to="/campuses">Campuses: { campuses.length }</Link>
       </li>
     </ul>
   );

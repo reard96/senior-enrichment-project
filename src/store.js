@@ -25,7 +25,7 @@ const campusReducer = (state = [], action) => {
 
 const loadStudents = () => {
   return (dispatch) => {
-    return axios.get('/api/students')
+    return axios.get('/students')
       .then(result => result.data)
       .then(students => dispatch({
         type: SET_STUDENTS,
@@ -37,7 +37,7 @@ const loadStudents = () => {
 
 const loadCampuses = () => {
   return (dispatch) => {
-    return axios.get('/api/campuses')
+    return axios.get('/campuses')
       .then(result => result.data)
       .then(campuses => dispatch({
         type: SET_CAMPUSES,

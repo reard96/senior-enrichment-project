@@ -11,8 +11,8 @@ app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, 'index.html')
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 // Routing
-app.use('/api/students', require('./routes/students'));
-app.use('/api/campuses', require('./routes/campuses'));
+app.use('/students', require('./routes/students'));
+app.use('/campuses', require('./routes/campuses'));
 
 const port = process.env.PORT || 3000;
 
