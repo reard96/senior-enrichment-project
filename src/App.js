@@ -22,7 +22,7 @@ class App extends Component {
           <Nav />
           <Route path="/" exact component={ Home } />
           <Route path="/students" exact component={ Students } />
-          <Route path="/students/:id" exact render={ ({ match }) => <Student id={ match.params.id * 1 } /> } />
+          <Route path="/students/:id" exact render={ ({ match, history }) => <Student id={ match.params.id * 1 } history={ history } /> } />
           <Route path="/campuses" exact component={ Campuses } />
           <Route path="/campuses/:id" exact render={ ({ match }) => <Campus id={ match.params.id * 1 } /> } />
         </div>
