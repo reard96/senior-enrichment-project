@@ -50,7 +50,7 @@ class Student extends Component {
     this.setState({ firstName: nextProps.student ? nextProps.student.firstName : '',
                     lastName: nextProps.student ? nextProps.student.lastName : '',
                     email: nextProps.student ? nextProps.student.email : '',
-                    gpa: nextProps.student ? nextProps.student.gpa : '',
+                    gpa: nextProps.student ? nextProps.student.gpa : ''
                    });
   }
 
@@ -71,7 +71,7 @@ class Student extends Component {
           <input type="number" value={ gpa } onChange={ onChangeGpa } />
           <button className="btn btn-primary">Update Student</button>
         </form>
-        <button className="btn btn-danger" onClick={ onDelete }>Delete</button>
+        <button className="btn btn-danger" onClick={ onDelete }>Delete Student</button>
       </div>
     );
   }
