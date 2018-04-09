@@ -69,7 +69,7 @@ class Student extends Component {
           <input type="text" value={ lastName } onChange={ onChangeLastName } />
           <input type="email" value={ email } onChange={ onChangeEmail } />
           <input type="number" value={ gpa } onChange={ onChangeGpa } />
-          <button className="btn btn-primary">Update Student</button>
+          <button className="btn btn-primary" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Update Student</button>
         </form>
         <button className="btn btn-danger" onClick={ onDelete }>Delete Student</button>
       </div>

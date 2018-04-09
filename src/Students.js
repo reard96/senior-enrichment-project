@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Students = ({ students }) => {
+  if (students.length < 1) {
+    return (
+      <h1>We don't have any students!</h1>
+    );
+  }
   return (
     <div>
       <h1>All Students:</h1>

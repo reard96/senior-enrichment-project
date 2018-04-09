@@ -53,7 +53,7 @@ class Campus extends Component {
         <form onSubmit={ onSave }>
           <input type="text" value={ name } onChange={ onChangeName } />
           <input type="text" value={ description } onChange={ onChangeDescription } />
-          <button className="btn btn-primary">Update Campus</button>
+          <button className="btn btn-primary" disabled={ !this.state.name || !this.state.description }>Update Campus</button>
         </form>
         <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
       </div>
