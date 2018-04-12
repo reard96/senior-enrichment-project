@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-import { loadStudents, loadCampuses } from './store';
+import { loadStudents, loadCampuses } from './store/store.js';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Students from './Students';
 import Campuses from './Campuses';
-import Student from './Student';
-import Campus from './Campus';
-import StudentCreate from './StudentCreate';
-import CampusCreate from './CampusCreate';
+import Student from './components/Student';
+import Campus from './components/Campus';
+import StudentCreate from './components/StudentCreate';
+import CampusCreate from './components/CampusCreate';
 
 class App extends Component {
   componentDidMount() {
