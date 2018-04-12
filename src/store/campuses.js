@@ -7,7 +7,7 @@ const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
 const CREATE_CAMPUS  = 'CREATE_CAMPUS';
 
-// CAMPUS ACTION CREATORS
+// ACTION CREATORS
 export const loadCampuses = () => {
   return (dispatch) => {
     return axios.get('/api/campuses')

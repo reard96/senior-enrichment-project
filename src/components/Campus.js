@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { saveCampus, deleteCampus } from '../store/store.js';
+import { saveCampus, deleteCampus } from '../store';
 
 class Campus extends Component {
   constructor(props) {

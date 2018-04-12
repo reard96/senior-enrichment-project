@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-import { loadStudents, loadCampuses } from '../store/store.js';
+import { loadStudents, loadCampuses } from '../store';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
