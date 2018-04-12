@@ -12,7 +12,10 @@ const Nav = ({ students, campuses }) => {
         <Link to="/students">Students: { students.length }</Link>
       </li>
       <li>
-      <Link to="/campuses">Campuses: { campuses.length }</Link>
+        <Link to="/campuses">Campuses: { campuses.length }</Link>
+      </li>
+      <li>
+        <Link to="/students/create">Create a Student</Link>
       </li>
     </ul>
   );

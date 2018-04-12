@@ -6,13 +6,13 @@ import axios from 'axios';
 const SET_STUDENTS = 'SET_STUDENTS';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const DELETE_STUDENT = 'DELETE_STUDENT';
-// const CREATE_STUDENT  = 'CREATE_STUDENT';
+const CREATE_STUDENT  = 'CREATE_STUDENT';
 
 // CAMPUS ACTION TYPES
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
-// const CREATE_CAMPUS  = 'CREATE_CAMPUS';
+const CREATE_CAMPUS  = 'CREATE_CAMPUS';
 
 // STUDENT ACTION CREATORS
 const loadStudents = () => {
@@ -127,7 +127,7 @@ const deleteCampus = (campus, history) => {
 };
 
 const studentsReducer = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SET_STUDENTS:
       state = action.students;
       break;
@@ -137,12 +137,15 @@ const studentsReducer = (state = [], action) => {
     case DELETE_STUDENT:
       state = state.filter(student => student.id !== action.student.id);
       break;
+    case CREATE_STUDENT:
+      state = [...state, action.student];
+      break;
   }
   return state;
 };
 
 const campusReducer = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SET_CAMPUSES:
       state = action.campuses;
       break;
@@ -151,6 +154,9 @@ const campusReducer = (state = [], action) => {
       break;
     case DELETE_CAMPUS:
       state = state.filter(campus => campus.id !== action.campus.id);
+      break;
+    case CREATE_CAMPUS:
+      state = [...state, action.campus];
       break;
   }
   return state;
