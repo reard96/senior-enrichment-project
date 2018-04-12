@@ -99,10 +99,10 @@ const saveCampus = (campus, history) => {
     };
   }
   return (dispatch) => {
-    return axios.put(`/api/campuses/${ campus.id }`, campus)
+    return axios.post('/api/campuses', campus)
       .then(result => result.data)
       .then(campus => dispatch({
-        type: UPDATE_CAMPUS,
+        type: CREATE_CAMPUS,
         campus
       })
     )

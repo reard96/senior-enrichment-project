@@ -17,6 +17,9 @@ const Nav = ({ students, campuses }) => {
       <li>
         <Link to="/students/create">Create a Student</Link>
       </li>
+      <li>
+        <Link to="/campuses/create">Create a Campus</Link>
+      </li>
     </ul>
   );
 };
