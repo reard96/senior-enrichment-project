@@ -1,24 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 const Nav = ({ students, campuses }) => {
   return (
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/students">Students: { students.length }</Link>
+        <NavLink to="/students">Students: { students.length }</NavLink>
       </li>
       <li>
-        <Link to="/campuses">Campuses: { campuses.length }</Link>
+        <NavLink to="/campuses">Campuses: { campuses.length }</NavLink>
       </li>
       <li>
-        <Link to="/students/create">Create a Student</Link>
+        <NavLink to="/students/create">Create a Student</NavLink>
       </li>
       <li>
-        <Link to="/campuses/create">Create a Campus</Link>
+        <NavLink to="/campuses/create">Create a Campus</NavLink>
       </li>
     </ul>
   );
@@ -31,4 +31,4 @@ const mapStateToProps = ({ students, campuses }) => {
   };
 };
 
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));
