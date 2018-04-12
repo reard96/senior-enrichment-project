@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import store from './store';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
+import { App } from './components';
 
 const root = document.getElementById('root');
 render((
