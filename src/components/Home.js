@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <h1>Home</h1>
+    <h2>Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript</h2>
   );
 };
 

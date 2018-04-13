@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+import Menu from './Menu';
 import { loadStudents, loadCampuses } from '../store';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Menu />
           <Route path="/" exact component={ Home } />
           <Route path="/students" exact component={ Students } />
           <Switch>
