@@ -4,7 +4,7 @@
   justify-content: center
 }
 
-/* cool css styling I found online */
+/* cool css styling I found online for homepage */
 .knockout {
   background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
   -webkit-text-fill-color: transparent;
@@ -16,6 +16,11 @@
   width: 600px;
   margin: auto;
   text-align: center
+}
+
+.input-large {
+  width: 50%;
+  height: 30%
 }
 
 

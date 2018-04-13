@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveCampus, deleteCampus } from '../store';
+import { PageHeader } from 'react-bootstrap';
 
 import style from '../styles/display.css';
 
@@ -51,13 +52,15 @@ class Campus extends Component {
     }
     return (
       <div className={ style.wrapper }>
-        <h1>{ campus.name }</h1>
-        <form onSubmit={ onSave }>
-          <input type="text" value={ name } onChange={ onChangeName } />
-          <input type="text" value={ description } onChange={ onChangeDescription } />
-          <button className="btn btn-primary" disabled={ !this.state.name || !this.state.description }>Update Campus</button>
-        </form>
-        <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
+        <PageHeader>{ campus.name }</PageHeader>
+        <div>
+          <form onSubmit={ onSave }>
+            <input type="text" value={ name } onChange={ onChangeName } />
+            <input type="textarea" value={ description } onChange={ onChangeDescription } />
+            <button className="btn btn-primary" disabled={ !this.state.name || !this.state.description }>Update Campus</button>
+          </form>
+          <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
+        </div>
       </div>
     );
   }
