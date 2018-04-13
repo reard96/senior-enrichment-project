@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveCampus, deleteCampus } from '../store';
 
+import style from '../styles/display.css';
+
 class Campus extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +50,7 @@ class Campus extends Component {
       return <div>No campus found!</div>;
     }
     return (
-      <div>
+      <div className={ style.wrapper }>
         <h1>{ campus.name }</h1>
         <form onSubmit={ onSave }>
           <input type="text" value={ name } onChange={ onChangeName } />

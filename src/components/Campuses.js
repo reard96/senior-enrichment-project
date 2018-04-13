@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { PageHeader } from 'react-bootstrap';
+
+import style from '../styles/display.css';
 
 const Campuses = ({ campuses }) => {
   if (campuses.length < 1) {
@@ -9,8 +12,9 @@ const Campuses = ({ campuses }) => {
     );
   }
   return (
-    <div>
-      <h1>All Campuses:</h1>
+    <div className={ style.wrapper }>
+      <PageHeader>All Campuses:</PageHeader>
+      <div>
       <ul>
       {
         campuses.map(campus => {
@@ -22,6 +26,7 @@ const Campuses = ({ campuses }) => {
         })
       }
       </ul>
+      </div>
     </div>
   );
 };

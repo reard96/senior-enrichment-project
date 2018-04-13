@@ -1,0 +1,21 @@
+.wrapper {
+  padding: 0 3em 0 3em;
+  display: flex;
+  justify-content: center
+}
+
+/* cool css styling I found online */
+.knockout {
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: bold;
+  font-size: 400%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  width: 600px;
+  margin: auto;
+  text-align: center
+}
+
+

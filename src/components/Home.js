@@ -1,8 +1,12 @@
 import React from 'react';
 
+import style from '../styles/display.css';
+
 const Home = () => {
   return (
-    <h2>Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript</h2>
+    <div className={ style.wrapper }>
+      <div className={ style.knockout }>Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript!</div>
+    </div>
   );
 };
 
