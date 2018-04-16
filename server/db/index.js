@@ -7,9 +7,9 @@ Student.belongsTo(Campus);
 Campus.hasMany(Student);
 
 const seedStudent = [
-  { firstName: 'Dan', lastName: 'Reardon', email: 'dan@penn.edu' },
-  { firstName: 'Greg', lastName: 'Moon', email: 'greg@nyu.edu' },
-  { firstName: 'Fendi', lastName: 'Liu', email: 'fendi@columbia.edu' }
+  { firstName: 'Dan', lastName: 'Reardon', email: 'dan@penn.edu', campusId: 1},
+  { firstName: 'Greg', lastName: 'Moon', email: 'greg@nyu.edu', campusId: 1 },
+  { firstName: 'Fendi', lastName: 'Liu', email: 'fendi@columbia.edu', campusId: 1 }
 ];
 
 const seedCampus = [

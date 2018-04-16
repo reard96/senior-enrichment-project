@@ -12,7 +12,8 @@ class Student extends Component {
       firstName: this.props.student ? this.props.student.firstName : '',
       lastName: this.props.student ? this.props.student.lastName : '',
       email: this.props.student ? this.props.student.email : '',
-      gpa: this.props.student ? this.props.student.gpa : 0.00
+      gpa: this.props.student ? this.props.student.gpa : 0.00,
+      campusId: this.props.student ? this.props.student.campusId : null
     };
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -75,7 +76,7 @@ class Student extends Component {
             <input type="text" placeholder={ firstName } onChange={ onChangeFirstName } />
             <input type="text" placeholder={ lastName } onChange={ onChangeLastName } />
             <input type="email" placeholder={ email } onChange={ onChangeEmail } />
-            <input type="number" placeholder={ gpa } onChange={ onChangeGpa } />
+            <input type="number" step="0.1" placeholder={ gpa } onChange={ onChangeGpa } />
             <div className={ style.updateButton }>
               <button className="btn btn-primary" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Update Student</button>
             </div>

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { saveCampus, deleteCampus } from '../store';
 import { PageHeader } from 'react-bootstrap';
 
+import StudentSmall from './StudentSmall';
+
 import style from '../styles/display.css';
 
 class Campus extends Component {
@@ -72,6 +74,7 @@ class Campus extends Component {
             <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
           </div>
         </div>
+        <StudentSmall campus={ campus } />
       </div>
     );
   }
