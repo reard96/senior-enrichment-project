@@ -30,6 +30,17 @@ const Student = conn.define('student', {
     validate: {
       notEmpty: true
     }
+  },
+  /* I downloaded a bunch of images using https://github.com/fangpenlin/avataaars
+     for a quick and dirty solution. To-do: implement the React module; write
+     a randomizing function. */
+  image: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    defaultValue: function() {
+      const randomNumber = Math.floor(Math.random() * 24) + 1;
+      return `/images/avataaars${randomNumber}.png`;
+    }
   }
 }, {
   getterMethods: {

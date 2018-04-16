@@ -55,9 +55,7 @@ class Campus extends Component {
         <div className={ style.header }>
           <PageHeader>{ campus.name }</PageHeader>
         </div>
-        <div>
-          <img height="40%" width="40%" className={ style.campusImage } src={ campus.imageUrl } />
-        </div>
+        <img className={ style.campusImage } src={ campus.imageUrl } />
         <div>
           <form onSubmit={ onSave }>
             <div className={ style.inner }>

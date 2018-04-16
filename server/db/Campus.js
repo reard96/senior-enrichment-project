@@ -1,7 +1,6 @@
 const conn = require('./conn');
 const { Sequelize } = conn;
 
-
 const urls = require('./campusUrls');
 
 const Campus = conn.define('campus', {

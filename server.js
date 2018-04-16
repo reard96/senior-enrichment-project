@@ -6,7 +6,10 @@ const db = require('./server/db');
 
 app.use(require('body-parser').json());
 
-app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+
+// so I can deliver the image files for students
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
