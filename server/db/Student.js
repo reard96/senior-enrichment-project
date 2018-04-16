@@ -26,7 +26,10 @@ const Student = conn.define('student', {
   gpa: {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false,
-    defaultValue: 0.00,
+    // We have grade inflation :)
+    defaultValue: function() {
+      return Math.random() * 2 + 2;
+    },
     validate: {
       notEmpty: true
     }

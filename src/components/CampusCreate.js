@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveCampus } from '../store';
+import { PageHeader } from 'react-bootstrap';
+
+import style from '../styles/display.css';
 
 class CampusCreate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'campus name',
-      description: 'lorem ipsum'
+      name: 'Campus name',
+      description: 'Lorem ipsum'
     };
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -36,11 +39,19 @@ class CampusCreate extends Component {
 
     return (
       <div>
-        <h1>Create a Campus</h1>
+        <div className={ style.header }>
+          <PageHeader>Create a Campus</PageHeader>
+        </div>
         <form onSubmit={ onSave }>
-          <input type="text" value={ name } onChange={ onChangeName } />
-          <input type="text" value={ description } onChange={ onChangeDescription } />
-          <button className="btn btn-success" disabled={ !this.state.name || !this.state.description }>Create Campus</button>
+          <div className={ style.inner }>
+            <input type="text" placeholder={ name } onChange={ onChangeName } />
+          </div>
+          <div className={ style.inner }>
+            <textarea rows="5" cols="40" role="textbox" placeholder={ description } onChange={ onChangeDescription } />
+            <div className={ style.updateButton }>
+              <button className="btn btn-success" disabled={ !this.state.name || !this.state.description }>Create Campus</button>
+            </div>
+          </div>
         </form>
       </div>
     );

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveStudent } from '../store/index.js';
+import { PageHeader } from 'react-bootstrap';
+
+import style from '../styles/display.css';
 
 class StudentCreate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: 'first name',
-      lastName: 'last name',
-      email: 'email address',
-      gpa: 0
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email address',
+      gpa: '0.00 - 4.00'
     };
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -48,13 +51,19 @@ class StudentCreate extends Component {
 
     return (
       <div>
-        <h1>Create a Student</h1>
+        <div className={ style.header }>
+          <PageHeader>Create a Student</PageHeader>
+        </div>
         <form onSubmit={ onSave }>
-          <input type="text" value={ firstName } onChange={ onChangeFirstName } />
-          <input type="text" value={ lastName } onChange={ onChangeLastName } />
-          <input type="email" value={ email } onChange={ onChangeEmail } />
-          <input type="number" value={ gpa } onChange={ onChangeGpa } />
-          <button className="btn btn-success" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Create Student</button>
+          <div className={ style.inner }>
+            <input type="text" placeholder={ firstName } onChange={ onChangeFirstName } />
+            <input type="text" placeholder={ lastName } onChange={ onChangeLastName } />
+            <input type="email" placeholder={ email } onChange={ onChangeEmail } />
+            <input type="number" step="0.1" placeholder={ gpa } onChange={ onChangeGpa } />
+            <div className={ style.updateButton }>
+              <button className="btn btn-success" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Create Student</button>
+            </div>
+          </div>
         </form>
       </div>
     );
