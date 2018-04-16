@@ -1,6 +1,9 @@
 const conn = require('./conn');
 const { Sequelize } = conn;
 
+
+const urls = require('./campusUrls');
+
 const Campus = conn.define('campus', {
   name: {
     type: Sequelize.STRING,
@@ -12,7 +15,9 @@ const Campus = conn.define('campus', {
   imageUrl: {
     type: Sequelize.STRING,
     allowNull: false,
-    defaultValue: 'http://www.collegerank.net/wp-content/uploads/2015/08/morehouse-college-quad.jpg',
+    defaultValue: function() {
+      return urls[Math.floor(Math.random() * urls.length)];
+      },
     validate: {
       isUrl: true
     }
