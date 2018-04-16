@@ -4,6 +4,7 @@ import { saveStudent, deleteStudent } from '../store';
 import { PageHeader } from 'react-bootstrap';
 
 import style from '../styles/display.css';
+import CampusDropdown from './CampusDropdown';
 
 class Student extends Component {
   constructor(props) {
@@ -13,12 +14,13 @@ class Student extends Component {
       lastName: this.props.student ? this.props.student.lastName : '',
       email: this.props.student ? this.props.student.email : '',
       gpa: this.props.student ? this.props.student.gpa : 0.00,
-      campusId: this.props.student ? this.props.student.campusId : null
+      campusId: this.props.student ? this.props.student.campusId : 'Choose a Campus'
     };
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangeGpa = this.onChangeGpa.bind(this);
+    this.onChangeCampusId = this.onChangeCampusId.bind(this);
     this.onSave = this.onSave.bind(this);
     this.onDelete = this.onDelete.bind(this);
   }
@@ -35,6 +37,10 @@ class Student extends Component {
   onChangeGpa(ev) {
     this.setState({ gpa: ev.target.value });
   }
+  onChangeCampusId(ev) {
+    console.log(ev);
+    this.setState({ campusId: ev.target.value });
+  }
 
   onSave(ev) {
     ev.preventDefault();
@@ -42,7 +48,8 @@ class Student extends Component {
                       firstName: this.state.firstName,
                       lastName: this.state.lastName,
                       email: this.state.email,
-                      gpa: this.state.gpa };
+                      gpa: this.state.gpa,
+                      campusId: this.state.campusId };
 
     this.props.saveStudent(student);
   }
@@ -54,14 +61,15 @@ class Student extends Component {
     this.setState({ firstName: nextProps.student ? nextProps.student.firstName : '',
                     lastName: nextProps.student ? nextProps.student.lastName : '',
                     email: nextProps.student ? nextProps.student.email : '',
-                    gpa: nextProps.student ? nextProps.student.gpa : ''
+                    gpa: nextProps.student ? nextProps.student.gpa : '',
+                    campusId: nextProps.student ? nextProps.student.campusId : ''
                    });
   }
 
   render() {
     const { student } = this.props;
     const { firstName, lastName, email, gpa } = this.state;
-    const { onChangeFirstName, onChangeLastName, onChangeEmail, onChangeGpa, onSave, onDelete } = this;
+    const { onChangeFirstName, onChangeLastName, onChangeEmail, onChangeGpa, onSave, onDelete, onChangeCampusId } = this;
     if (!student) {
       return <div>No student found!</div>;
     }
@@ -77,6 +85,8 @@ class Student extends Component {
             <input type="text" placeholder={ lastName } onChange={ onChangeLastName } />
             <input type="email" placeholder={ email } onChange={ onChangeEmail } />
             <input type="number" step="0.1" placeholder={ gpa } onChange={ onChangeGpa } />
+            <input type="number" onChange={ onChangeCampusId } />
+            <CampusDropdown student={ student } onChange={ onChangeCampusId } />
             <div className={ style.updateButton }>
               <button className="btn btn-primary" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Update Student</button>
             </div>

@@ -5,6 +5,7 @@ import { PageHeader } from 'react-bootstrap';
 
 import style from '../styles/display.css';
 
+// need to make this a component that updates w/ state!
 const StudentSmall = ({ students, campus }) => {
   if (students.filter(student => student.campusId === campus.id) < 1) {
     return (
