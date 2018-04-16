@@ -51,15 +51,28 @@ class Campus extends Component {
       return <div>No campus found!</div>;
     }
     return (
-      <div className={ style.wrapper }>
-        <PageHeader>{ campus.name }</PageHeader>
+      <div>
+        <div className={ style.header }>
+          <PageHeader>{ campus.name }</PageHeader>
+        </div>
+        <div>
+          <img height="40%" width="40%" className={ style.campusImage } src={ campus.imageUrl } />
+        </div>
         <div>
           <form onSubmit={ onSave }>
-            <input type="text" value={ name } onChange={ onChangeName } />
-            <input type="textarea" value={ description } onChange={ onChangeDescription } />
-            <button className="btn btn-primary" disabled={ !this.state.name || !this.state.description }>Update Campus</button>
+            <div className={ style.inner }>
+              <input type="text" placeholder={ name } onChange={ onChangeName } />
+            </div>
+            <div className={ style.inner }>
+              <textarea rows="5" cols="40" role="textbox" placeholder={ description } onChange={ onChangeDescription } />
+              <div className={ style.updateButton }>
+                <button className="btn btn-primary" disabled={ !this.state.name || !this.state.description }>Update Campus</button>
+              </div>
+            </div>
           </form>
-          <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
+          <div className={ style.inner }>
+            <button className="btn btn-danger" onClick={ onDelete }>Delete Campus</button>
+          </div>
         </div>
       </div>
     );

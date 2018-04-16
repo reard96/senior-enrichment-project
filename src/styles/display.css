@@ -1,7 +1,32 @@
 .wrapper {
   padding: 0 3em 0 3em;
   display: flex;
-  justify-content: center
+  justify-content: center;
+  position: relative
+}
+
+.header {
+  padding: 0 3em 0 3em;
+  display: flex;
+  justify-content: left;
+  position: relative
+}
+
+.campusImage {
+  padding: 0 3em 0 3em;
+  display: flex;
+  position: relative
+}
+
+.inner {
+  padding: 0.25em 3em 0.25em 3em;
+  display: flex;
+  align-items: center
+}
+
+.updateButton {
+  padding: 0 0 0 0.5em;
+  position: relative
 }
 
 /* cool css styling I found online for homepage */
@@ -17,10 +42,3 @@
   margin: auto;
   text-align: center
 }
-
-.input-large {
-  width: 50%;
-  height: 30%
-}
-
-
