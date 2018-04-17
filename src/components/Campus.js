@@ -41,8 +41,7 @@ class Campus extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ name: nextProps.campus ? nextProps.campus.name : '',
-                    description: nextProps.campus ? nextProps.campus.description : ''
-                   });
+                    description: nextProps.campus ? nextProps.campus.description : '' });
   }
 
   render() {

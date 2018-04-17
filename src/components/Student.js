@@ -16,30 +16,19 @@ class Student extends Component {
       gpa: this.props.student ? this.props.student.gpa : 0.00,
       campusId: this.props.student ? this.props.student.campusId : 'Choose a Campus'
     };
-    this.onChangeFirstName = this.onChangeFirstName.bind(this);
-    this.onChangeLastName = this.onChangeLastName.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeGpa = this.onChangeGpa.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onChangeCampusId = this.onChangeCampusId.bind(this);
     this.onSave = this.onSave.bind(this);
     this.onDelete = this.onDelete.bind(this);
   }
 
-  onChangeFirstName(ev) {
-    this.setState({ firstName: ev.target.value });
+  onChange(ev) {
+    const change = {};
+    change[ev.target.name] = ev.target.value;
+    this.setState(change);
   }
-  onChangeLastName(ev) {
-    this.setState({ lastName: ev.target.value });
-  }
-  onChangeEmail(ev) {
-    this.setState({ email: ev.target.value });
-  }
-  onChangeGpa(ev) {
-    this.setState({ gpa: ev.target.value });
-  }
-  onChangeCampusId(ev) {
-    console.log(ev);
-    this.setState({ campusId: ev.target.value });
+  onChangeCampusId(val) {
+    this.setState({ campusId: val });
   }
 
   onSave(ev) {
@@ -50,7 +39,6 @@ class Student extends Component {
                       email: this.state.email,
                       gpa: this.state.gpa,
                       campusId: this.state.campusId };
-
     this.props.saveStudent(student);
   }
   onDelete() {
@@ -62,14 +50,13 @@ class Student extends Component {
                     lastName: nextProps.student ? nextProps.student.lastName : '',
                     email: nextProps.student ? nextProps.student.email : '',
                     gpa: nextProps.student ? nextProps.student.gpa : '',
-                    campusId: nextProps.student ? nextProps.student.campusId : ''
-                   });
+                    campusId: nextProps.student ? nextProps.student.campusId : '' });
   }
 
   render() {
     const { student } = this.props;
-    const { firstName, lastName, email, gpa } = this.state;
-    const { onChangeFirstName, onChangeLastName, onChangeEmail, onChangeGpa, onSave, onDelete, onChangeCampusId } = this;
+    const { firstName, lastName, email, gpa, campusId } = this.state;
+    const { onChange, onChangeCampusId, onSave, onDelete } = this;
     if (!student) {
       return <div>No student found!</div>;
     }
@@ -81,12 +68,11 @@ class Student extends Component {
         <img className={ style.studentImage } src={ student.image } />
         <form onSubmit={ onSave }>
           <div className={ style.inner }>
-            <input type="text" placeholder={ firstName } onChange={ onChangeFirstName } />
-            <input type="text" placeholder={ lastName } onChange={ onChangeLastName } />
-            <input type="email" placeholder={ email } onChange={ onChangeEmail } />
-            <input type="number" step="0.1" placeholder={ gpa } onChange={ onChangeGpa } />
-            <input type="number" onChange={ onChangeCampusId } />
-            <CampusDropdown student={ student } onChange={ onChangeCampusId } />
+            <input type="text" placeholder={ firstName } name="firstName" onChange={ onChange } />
+            <input type="text" placeholder={ lastName } name="lastName" onChange={ onChange } />
+            <input type="email" placeholder={ email } name="email" onChange={ onChange } />
+            <input type="number" step="0.1" placeholder={ gpa } name="gpa" onChange={ onChange } />
+            <CampusDropdown student={ student } campusId={ campusId } saveStudent={ saveStudent } onChangeCampusId={ onChangeCampusId } />
             <div className={ style.updateButton }>
               <button className="btn btn-primary" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Update Student</button>
             </div>
