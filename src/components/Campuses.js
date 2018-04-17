@@ -12,20 +12,22 @@ const Campuses = ({ campuses }) => {
     );
   }
   return (
-    <div className={ style.wrapper }>
-      <PageHeader>All Campuses:</PageHeader>
-      <div>
-      <ul>
-      {
-        campuses.map(campus => {
-          return (
-            <li key={ campus.id }>
-              <Link to={ `/campuses/${ campus.id }` }>{ campus.name }</Link>
-            </li>
-          );
-        })
-      }
-      </ul>
+    <div>
+      <div className={ style.header }>
+        <PageHeader>All Campuses: </PageHeader>
+      </div>
+      <div className={ style.inner }>
+        <ul>
+        {
+          campuses.map(campus => {
+            return (
+              <li key={ campus.id }>
+                <Link to={ `/campuses/${ campus.id }` }>{ campus.name }</Link>
+              </li>
+            );
+          })
+        }
+        </ul>
       </div>
     </div>
   );

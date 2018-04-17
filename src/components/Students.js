@@ -1,25 +1,22 @@
-/* eslint-disable */
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { PageHeader } from 'react-bootstrap';
 
-// writing as component to add functionality later
-class Students extends Component {
-  constructor() {
-    super();
-  }
+import style from '../styles/display.css';
 
-  render() {
-    const { students } = this.props;
-
-    if (students.length < 1) {
-      return (
-        <h1>We don't have any students!</h1>
-      );
-    }
+const Students = ({ students }) => {
+  if (students.length < 1) {
     return (
-      <div>
-        <h1>All Students:</h1>
+      <h1>We don't have any students!</h1>
+    );
+  }
+  return (
+    <div>
+      <div className={ style.header }>
+        <PageHeader>All Students:</PageHeader>
+      </div>
+      <div classname={ style.inner } >
         <ul>
         {
           students.map(student => {
@@ -32,9 +29,9 @@ class Students extends Component {
         }
         </ul>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const mapStateToProps = ({ students }) => {
   return {
