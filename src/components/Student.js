@@ -55,7 +55,7 @@ class Student extends Component {
 
   render() {
     const { student } = this.props;
-    const { firstName, lastName, email, gpa, campusId } = this.state;
+    const { firstName, lastName, email, gpa } = this.state;
     const { onChange, onChangeCampusId, onSave, onDelete } = this;
     if (!student) {
       return <div>No student found!</div>;
@@ -72,7 +72,7 @@ class Student extends Component {
             <input type="text" placeholder={ lastName } name="lastName" onChange={ onChange } />
             <input type="email" placeholder={ email } name="email" onChange={ onChange } />
             <input type="number" step="0.1" placeholder={ gpa } name="gpa" onChange={ onChange } />
-            <CampusDropdown student={ student } campusId={ campusId } saveStudent={ saveStudent } onChangeCampusId={ onChangeCampusId } />
+            <CampusDropdown student={ student } onChangeCampusId={ onChangeCampusId } />
             <div className={ style.updateButton }>
               <button className="btn btn-primary" disabled={ !this.state.firstName || !this.state.lastName || !this.state.email || !this.state.gpa }>Update Student</button>
             </div>

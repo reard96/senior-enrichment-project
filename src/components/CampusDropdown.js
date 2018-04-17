@@ -16,6 +16,7 @@ class CampusDropdown extends Component {
     this.props.onChangeCampusId(newCampus);
     // Couldn't figure out update without refresh...
     this.setState({ campusId: newCampus });
+    console.log(this.state)
   }
 
   componentWillReceiveProps(nextProps) {

@@ -32,7 +32,6 @@ class Campus extends Component {
     const campus = { id: this.props.id,
                      name: this.state.name,
                      description: this.state.description };
-
     this.props.saveCampus(campus);
   }
   onDelete() {
@@ -54,7 +53,7 @@ class Campus extends Component {
     return (
       <div>
         <div className={ style.header }>
-          <PageHeader>{ campus.name }</PageHeader>
+          <PageHeader>{ name }</PageHeader>
         </div>
         <img className={ style.campusImage } src={ campus.imageUrl } />
         <div>
